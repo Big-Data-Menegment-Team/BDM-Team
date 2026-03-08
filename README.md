@@ -97,18 +97,18 @@ Zone enrichment is applied via `taxi_zone_lookup.parquet` using two explicit `br
 
 ## 2. Performance
 
-> Full job runtime: **XX.XX s**
+> Full job runtime: **32 s**
 
 ### Spark UI Screenshots
 
-Two Spark Web UI screenshots are included in the repository:
-- One showing total job / stage time
-- One showing shuffle read / write or spill for the join or aggregation stage
+Total jobs timeline and shuffle read / write.
+![total time](img/Jobs_timeline.png)
+![shuffle](img/stages.png)
 
 ### Optimization Choices
 
-1. first choice here
-2. second choice here
+1. Initially, we did not use a broadcast join, which resulted in poor performance. By introducing broadcast joins, we were able to reduce the total runtime by approximately 10 seconds.
+2. We displayed a large amount of data in the notebook during transformations. While this helped us understand the core exercise, it negatively impacted performance and create more stages in the Spark. By commenting out these outputs, we reduced the number of jobs from 53 to 19 and cut the total job runtime from 1 min 14 s to 32 s.
 
 ## 3. Scenario
 `Maintain data/outbox/monthly_borough_summary.parquet that is updated incrementally: on each run, compute stats only for newly ingested months and append to the summary. Do not recompute from the full dataset. README must explain the append strategy and how idempotency is preserved.`
