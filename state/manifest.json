@@ -1,0 +1,14 @@
+{
+  "trip_files": [
+    {
+      "filename": "yellow_tripdata_2025-02.parquet",
+      "file_size": 60343086,
+      "processed_at": "2026-03-08T14:32:25.207822"
+    },
+    {
+      "filename": "yellow_tripdata_2025-01.parquet",
+      "file_size": 59158238,
+      "processed_at": "2026-03-08T14:32:25.207948"
+    }
+  ]
+}

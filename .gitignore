@@ -4,6 +4,4 @@ work/pyspark
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
-state/
-data/
 .env
