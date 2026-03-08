@@ -1,6 +1,9 @@
-data/inbox
-data/outbox
-data/state
 work/env
 work/pyspark
 .DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+state/
+data/
+.env
